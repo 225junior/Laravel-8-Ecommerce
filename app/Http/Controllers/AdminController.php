@@ -42,6 +42,7 @@ class AdminController extends Controller
        }
     }
 
+    //admin Dashboard
     public function dashboard()
     {
        return view('admin.dashboard');
