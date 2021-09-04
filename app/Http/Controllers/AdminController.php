@@ -17,7 +17,6 @@ class AdminController extends Controller
        return view('admin.login');
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,12 +34,17 @@ class AdminController extends Controller
        if(isset($result['0']->id)){
         $request->session()->put('ADMIN_LOGIN', true);
         $request->session()->put('ADMIN_ID', $result['0']->id);
-        return redirect('admin/Dashboard');
+        return redirect('admin/dashboard');
 
        }else{
            $request->session()->flash('error', 'Please Enter Valid Details');
            return redirect('admin');
        }
+    }
+
+    public function dashboard()
+    {
+       return view('admin.dashboard');
     }
 
 }
