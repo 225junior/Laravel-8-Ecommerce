@@ -32,5 +32,9 @@ class CategoryController extends Controller
        return view('admin.manage_category');
     }
 
+    public function manage_cateory_process(Request $request)
+    {
+      return $request->post();
+    }
    
 }
