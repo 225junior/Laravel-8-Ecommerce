@@ -27,8 +27,9 @@
 <div class="login-wrap">
     <div class="login-content">
         <div class="login-logo">
+           
             <a href="#">
-                <img src="{{asset('admin_assets/images/icon/logo.png')}}" alt="ADMIN">
+                {{Config::get('constants.SITE_NAME')}}
             </a>
         </div>
         <div class="login-form">

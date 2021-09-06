@@ -179,7 +179,7 @@
         <div class="account-item clearfix js-item-menu">
         
         <div class="content">
-        <a class="js-acc-btn" href="#">john doe</a>
+        <a class="js-acc-btn" href="#">Welcome Admin!</a>
         </div>
         <div class="account-dropdown js-dropdown">
         <div class="account-dropdown__body">
@@ -194,7 +194,7 @@
             
         </div>
         <div class="account-dropdown__footer">
-            <a href="#">
+            <a href="logout">
                 <i class="zmdi zmdi-power"></i>Logout</a>
         </div>
         </div>
