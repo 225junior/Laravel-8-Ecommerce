@@ -12,7 +12,7 @@
             <div class="card-header">Credit Card</div>
     <div class="card-body">
         <div class="card-title">
-            <h3 class="text-center title-2">Pay Invoice</h3>
+            <h3 class="text-center title-2">Manage Category</h3>
         </div>
         <hr>
         <form action="" method="post" novalidate="novalidate">
