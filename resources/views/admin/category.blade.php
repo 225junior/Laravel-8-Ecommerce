@@ -1,7 +1,11 @@
 @extends('admin.layout')
 
 @section('container')
+
 <h1 class="text-center">Category</h1>
+    <div class="alert alert-success">
+    {{session('message')}}
+    </div>
 <a href="manage_category">
     <button type="button" class="btn btn-secondary">Add Category</button>
 </a>

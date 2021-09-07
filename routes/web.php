@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
@@ -35,7 +34,6 @@ Route::group(['middleware'=>'admin_auth'],function() {
         session()->forget('ADMIN_ID');
         return redirect('admin');
     });
-    
     
 });
 
