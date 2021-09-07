@@ -30,7 +30,11 @@
                 <th>{{$list->id}}</th>
                 <th>{{$list->category_name}}</th>
                 <th>{{$list->category_slug}}</th>
-                <th>Edit</th>
+               <th>
+                <a href="category/delete/{{$list->id}}">
+                <button type="button" class="btn btn-danger">Delete</button></a>
+               </th>
+                 
             </tr>
             @endforeach
         </tbody>
