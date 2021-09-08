@@ -24,9 +24,12 @@ Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
 Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/dashboard', [AdminController::class, 'dashboard']);
     Route::get('admin/category', [CategoryController::class, 'index']);
-    Route::get('admin/manage_category', [CategoryController::class, 'manage_category']);
+    Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category']);
+    Route::get('admin/category/manage_category/{id}', [CategoryController::class, 'manage_category']);
 
-    Route::post('admin/manage_cateory_process', [CategoryController::class, 'manage_cateory_process'])->name('category.insert');
+    Route::post('admin/category/manage_cateory_process', [CategoryController::class, 'manage_cateory_process'])->name('category.manage_categroy_process');
+
+    Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete']);
 
   //Logout Route 
     Route::get('admin/logout', function () {

@@ -6,7 +6,7 @@
     <div class="alert alert-success">
     {{session('message')}}
     </div>
-<a href="manage_category">
+<a href="category/manage_category">
     <button type="button" class="btn btn-secondary">Add Category</button>
 </a>
 
@@ -31,8 +31,11 @@
                 <th>{{$list->category_name}}</th>
                 <th>{{$list->category_slug}}</th>
                <th>
-                <a href="category/delete/{{$list->id}}">
+                <a href="{{url('admin/category/delete')}}/{{$list->id}}">
                 <button type="button" class="btn btn-danger">Delete</button></a>
+
+                <a href="{{url('admin/category/manage_category')}}/{{$list->id}}">
+                <button type="button" class="btn btn-success">Edit</button></a>
                </th>
                  
             </tr>
