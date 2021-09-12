@@ -151,8 +151,8 @@
         <i class="fas fa-tachometer-alt"></i>Category</a>
     </li>
     <li>
-        <a href="{{url('admin/copon')}}">
-        <i class="fas fa-tachometer-alt"></i>Copon</a>
+        <a href="{{url('admin/coupon')}}">
+        <i class="fas fa-tachometer-alt"></i>Coupon</a>
     </li>
     
 
