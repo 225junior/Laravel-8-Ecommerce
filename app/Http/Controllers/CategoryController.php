@@ -13,10 +13,9 @@ class CategoryController extends Controller
       $result['data'] = Category::all();  
        return view('admin.category', $result);
     }
-
-   
-  
-     public function manage_category(Request $request, $id=''){
+ 
+ 
+    public function manage_category(Request $request, $id=''){
        if ($id > 0){
           $arr = Category::where(['id' => $id])->get();
           $result['category_name'] = $arr['0']->category_name;
