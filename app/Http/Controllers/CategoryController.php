@@ -7,28 +7,16 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
       $result['data'] = Category::all();  
        return view('admin.category', $result);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
- 
-    public function manage_category(Request $request, $id=''){
+   
+  
+     public function manage_category(Request $request, $id=''){
        if ($id > 0){
           $arr = Category::where(['id' => $id])->get();
           $result['category_name'] = $arr['0']->category_name;
@@ -43,10 +31,10 @@ class CategoryController extends Controller
     }
 
 
-    public function manage_cateory_process(Request $request)  {
+    public function manage_category_process(Request $request)  {
         $request->validate([
            'category_name' => 'required',
-         //   'category_slug' => 'required|unique:categories'
+         'category_slug' => 'required|unique:categories'
         ]);
 
          if ($request->post('id')>0) {

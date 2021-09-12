@@ -1,13 +1,13 @@
 @extends('admin.layout')
-@section('page_title', 'Category')
+@section('page_title', 'copon')
 @section('container')
 
-<h1 class="text-center">Category</h1>
+<h1 class="text-center">copon</h1>
     <div class="alert alert-success">
     {{session('message')}}
     </div>
-<a href="{{url('admin/category/manage_category')}}">    
-    <button type="button" class="btn btn-secondary">Add Category</button>
+<a href="{{url('admin/copon/manage_copon')}}">
+    <button type="button" class="btn btn-secondary">Add Cupon</button>
 </a>
 
 <div class="row m-t-30">
@@ -18,8 +18,9 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Category Name</th>
-                <th>Category Slug</th>
+                <th>Title</th>
+                <th>Code</th>
+                <th>Value</th>
                 <th>Action</th>
                  
             </tr>
@@ -28,13 +29,14 @@
             @foreach ($data as $list)
                <tr>
                 <th>{{$list->id}}</th>
-                <th>{{$list->category_name}}</th>
-                <th>{{$list->category_slug}}</th>
+                <th>{{$list->title}}</th>
+                <th>{{$list->code}}</th>
+                <th>{{$list->value}}</th>
                <th>
-                <a href="{{url('admin/category/delete')}}/{{$list->id}}">
+                <a href="{{url('admin/copon/delete')}}/{{$list->id}}">
                 <button type="button" class="btn btn-danger">Delete</button></a>
 
-                <a href="{{url('admin/category/manage_category')}}/{{$list->id}}">
+                <a href="{{url('admin/copon/manage_copon')}}/{{$list->id}}">
                 <button type="button" class="btn btn-success">Edit</button></a>
                </th>
                  
@@ -46,6 +48,4 @@
         <!-- END DATA TABLE-->
     </div>
 </div>
-
-
 @endsection 

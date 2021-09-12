@@ -49,15 +49,6 @@
         <li>
         <a href="index.html">Dashboard 1</a>
         </li>
-        <li>
-        <a href="index2.html">Dashboard 2</a>
-        </li>
-        <li>
-        <a href="index3.html">Dashboard 3</a>
-        </li>
-        <li>
-        <a href="index4.html">Dashboard 4</a>
-        </li>
         </ul>
         </li>
         <li>
@@ -156,8 +147,12 @@
         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
     </li>
     <li>
-        <a href="category">
+        <a href="{{url('admin/category')}}">
         <i class="fas fa-tachometer-alt"></i>Category</a>
+    </li>
+    <li>
+        <a href="{{url('admin/copon')}}">
+        <i class="fas fa-tachometer-alt"></i>Copon</a>
     </li>
     
 

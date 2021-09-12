@@ -1,8 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CoponController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CoponController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,23 +22,24 @@ Route::get('/', function () {
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
-// Category Controller
+
 Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/dashboard', [AdminController::class, 'dashboard']);
+    //Categoryj Controller routes
     Route::get('admin/category', [CategoryController::class, 'index']);
     Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category']);
     Route::get('admin/category/manage_category/{id}', [CategoryController::class, 'manage_category']);
-    Route::post('admin/category/manage_cateory_process', [CategoryController::class, 'manage_cateory_process'])->name('category.manage_categroy_process');
+    Route::post('admin/category/manage_category_process', [CategoryController::class, 'manage_category_process'])->name('category.manage_category_process');
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete']);
 
-    //Copon Controller
-    Route::get('admin/Copon', [CoponController::class, 'index']);
-    Route::get('admin/Copon/manage_Copon', [CoponController::class, 'manage_Copon']);
-    Route::get('admin/Copon/manage_Copon/{id}', [CoponController::class, 'manage_Copon']);
+    //Copon Controller routes
+    // Route::get('admin/copon', [CoponController::class, 'index']);
+    // Route::get('admin/copon/manage_copon', [CoponController::class, 'manage_copon']);
+    // Route::get('admin/copon/manage_copon/{id}', [CoponController::class, 'manage_copon']);
 
-    Route::post('admin/Copon/manage_cateory_process', [CoponController::class, 'manage_cateory_process'])->name('Copon.manage_categroy_process');
+    // Route::post('admin/copon/manage_copon_process', [CoponController::class, 'manage_copon_process'])->name('copon.manage_copon_process');
 
-    Route::get('admin/Copon/delete/{id}', [CoponController::class, 'delete']);
+    // Route::get('admin/copon/delete/{id}', [CoponController::class, 'delete']);
 
   //Logout Route 
     Route::get('admin/logout', function () {
