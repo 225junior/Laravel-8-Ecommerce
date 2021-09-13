@@ -1,5 +1,7 @@
 @extends('admin.layout')
 @section('page_title', 'Category')
+@section('category_select', 'active')
+
 @section('container')
 
 <h1 class="text-center">Category</h1>
@@ -33,6 +35,15 @@
                <th>
                 <a href="{{url('admin/category/delete')}}/{{$list->id}}">
                 <button type="button" class="btn btn-danger">Delete</button></a>
+                
+              @if ($list->status == 1)
+              <a href="{{url('admin/category/status/0')}}/{{$list->id}}">
+                <button type="button" class="btn btn-primary">Active</button></a>
+              @elseif($list->status == 0)
+              <a href="{{url('admin/category/status/1')}}/{{$list->id}}">
+                <button type="button" class="btn btn-warning">Deactive</button></a>
+               
+              @endif
 
                 <a href="{{url('admin/category/manage_category')}}/{{$list->id}}">
                 <button type="button" class="btn btn-success">Edit</button></a>

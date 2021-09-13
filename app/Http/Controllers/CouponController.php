@@ -12,8 +12,7 @@ class CouponController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
       $result['data'] = Coupon::all();  
        return view('admin.coupon', $result);
     }
@@ -62,10 +61,19 @@ class CouponController extends Controller
     }
 
     public function delete(Request $request, $id){
-    
        $model = Coupon::find($id);
        $model->delete();
        $request->session()->flash('message', 'coupon Deleted');
        return redirect('admin/coupon');
     }
+
+    public function status(Request $request, $status, $id){
+      $model = Coupon::find($id);
+      $model->status=$status;
+      $model->save();
+      $request->session()->flash('message', 'Coupon Status Updated');
+      return redirect('admin/coupon');
+       
+ }
+
 }
