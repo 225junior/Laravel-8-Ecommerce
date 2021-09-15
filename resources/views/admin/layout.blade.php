@@ -158,6 +158,10 @@
         <a href="{{url('admin/size')}}">
         <i class="fas fa-tag"></i>Size</a>
     </li>
+    <li class="@yield('color_select')">
+        <a href="{{url('admin/color')}}">
+        <i class="fas fa-tag"></i>Color</a>
+    </li>
     
 
 </ul>
