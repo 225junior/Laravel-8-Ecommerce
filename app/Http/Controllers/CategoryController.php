@@ -61,7 +61,7 @@ class CategoryController extends Controller
        $request->session()->flash('message', 'Category Deleted');
        return redirect('admin/category');
     }
-    
+    //Active and Deactive status update
     public function status(Request $request, $status, $id){
       $model = Category::find($id);
       $model->status=$status;

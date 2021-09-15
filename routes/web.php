@@ -33,7 +33,7 @@ Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete']);
     Route::get('admin/category/status/{status}/{id}', [CategoryController::class, 'status']);
 
-    //Copon Controller routes
+    //Coupon Controller routes
     Route::get('admin/coupon', [CouponController::class, 'index']);
     Route::get('admin/coupon/manage_coupon', [CouponController::class, 'manage_coupon']);
     Route::get('admin/coupon/manage_coupon/{id}', [CouponController::class, 'manage_coupon']);

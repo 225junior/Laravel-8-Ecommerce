@@ -48,7 +48,6 @@ class CouponController extends Controller
          }else{
             $model = new Coupon();
             $msg = "coupon Inserted";
-
         }
 
         $model->title = $request->post('title');
@@ -72,8 +71,7 @@ class CouponController extends Controller
       $model->status=$status;
       $model->save();
       $request->session()->flash('message', 'Coupon Status Updated');
-      return redirect('admin/coupon');
-       
+      return redirect('admin/coupon');     
  }
 
 }
