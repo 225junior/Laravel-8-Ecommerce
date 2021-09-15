@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\SizeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
 
 Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/dashboard', [AdminController::class, 'dashboard']);
-    //Categoryj Controller routes
+    //Categoryj Controller and routes
     Route::get('admin/category', [CategoryController::class, 'index']);
     Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category']);
     Route::get('admin/category/manage_category/{id}', [CategoryController::class, 'manage_category']);
@@ -33,7 +34,7 @@ Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'delete']);
     Route::get('admin/category/status/{status}/{id}', [CategoryController::class, 'status']);
 
-    //Coupon Controller routes
+    //Coupon Controller and routes
     Route::get('admin/coupon', [CouponController::class, 'index']);
     Route::get('admin/coupon/manage_coupon', [CouponController::class, 'manage_coupon']);
     Route::get('admin/coupon/manage_coupon/{id}', [CouponController::class, 'manage_coupon']);
@@ -41,6 +42,13 @@ Route::group(['middleware'=>'admin_auth'],function() {
     Route::get('admin/coupon/delete/{id}', [CouponController::class, 'delete']);
     Route::get('admin/coupon/status/{status}/{id}', [CouponController::class, 'status']);
 
+     //size Controller and routes
+     Route::get('admin/size', [SizeController::class, 'index']);
+     Route::get('admin/size/manage_size', [SizeController::class, 'manage_size']);
+     Route::get('admin/size/manage_size/{id}', [SizeController::class, 'manage_size']);
+     Route::post('admin/size/manage_size_process', [SizeController::class, 'manage_size_process'])->name('size.manage_size_process');
+     Route::get('admin/size/delete/{id}', [SizeController::class, 'delete']);
+     Route::get('admin/size/status/{status}/{id}', [SizeController::class, 'status']);
 
   //Logout Route 
     Route::get('admin/logout', function () {

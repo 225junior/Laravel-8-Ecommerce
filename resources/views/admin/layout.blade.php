@@ -154,6 +154,10 @@
         <a href="{{url('admin/coupon')}}">
         <i class="fas fa-tag"></i>Coupon</a>
     </li>
+    <li class="@yield('size_select')">
+        <a href="{{url('admin/size')}}">
+        <i class="fas fa-tag"></i>Size</a>
+    </li>
     
 
 </ul>
@@ -192,10 +196,10 @@
             <a href="logout">
                 <i class="zmdi zmdi-power"></i>Logout</a>
         </div>
-        </div>
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
+     </div>
+    </div>
     </div>
     </div>
 
