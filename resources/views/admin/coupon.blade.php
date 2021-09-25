@@ -4,10 +4,12 @@
 
 @section('container')
 
+
 <h1 class="text-center">Coupon</h1>
     <div class="alert alert-success">
     {{session('message')}}
     </div>
+@endif
 <a href="{{url('admin/coupon/manage_coupon')}}">    
     <button type="button" class="btn btn-secondary">Add Coupon</button>
 </a>

@@ -3,11 +3,12 @@
 @section('size_select', 'active')
 
 @section('container')
-
+@if (session()->has('message'))
 <h1 class="text-center">size</h1>
     <div class="alert alert-success">
     {{session('message')}}
     </div>
+    @endif
 <a href="{{url('admin/size/manage_size')}}">    
     <button type="button" class="btn btn-secondary">Add Size</button>
 </a>

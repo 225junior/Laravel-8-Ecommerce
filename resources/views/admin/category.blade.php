@@ -3,11 +3,13 @@
 @section('category_select', 'active')
 
 @section('container')
-
+@if (session()->has('message'))
 <h1 class="text-center">Category</h1>
     <div class="alert alert-success">
     {{session('message')}}
     </div>
+    @endif
+    
 <a href="{{url('admin/category/manage_category')}}">    
     <button type="button" class="btn btn-secondary">Add Category</button>
 </a>
