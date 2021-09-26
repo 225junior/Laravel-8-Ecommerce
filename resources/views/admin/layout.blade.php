@@ -162,6 +162,10 @@
         <a href="{{url('admin/color')}}">
         <i class="fas fa-tag"></i>Color</a>
     </li>
+    <li class="@yield('color_select')">
+        <a href="{{url('admin/prodcut')}}">
+        <i class="fas fa-tag"></i>Products</a>
+    </li>
     
 
 </ul>

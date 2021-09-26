@@ -7,79 +7,63 @@ use Illuminate\Http\Request;
 
 class ProdcutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+      $result['data'] = Prodcut::all();  
+       return view('admin.product', $result);
+    }
+ 
+    public function manage_product(Request $request, $id=''){
+       if ($id > 0){
+          $arr = Prodcut::where(['id' => $id])->get();
+          $result['product'] = $arr['0']->product;
+          $result['status'] = $arr['0']->status;
+          $result['id'] = $arr['0']->id;
+       }else{
+          $result['product'] = '';
+          $result['status'] = '';
+          $result['id'] = '0';
+       }
+       return view('admin.manage_product', $result);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+    public function manage_product_process(Request $request)  {
+        $request->validate([
+            'product' => 'required|unique:products'
+        ]);
+
+         if ($request->post('id')>0) {
+            $model = Prodcut::find($request->post('id'));
+            $msg = "product Updated";
+         }else{
+            $model = new Prodcut();
+            $msg = "product Inserted";
+
+        }
+
+        $model->product = $request->post('product');
+       
+        $model->save();
+
+        $request->session()->flash('message', $msg);
+        return redirect('admin/product');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function delete(Request $request, $id){
+    
+       $model = Prodcut::find($id);
+       $model->delete();
+       $request->session()->flash('message', 'product Deleted');
+       return redirect('admin/product');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Prodcut  $prodcut
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Prodcut $prodcut)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Prodcut  $prodcut
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Prodcut $prodcut)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prodcut  $prodcut
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Prodcut $prodcut)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Prodcut  $prodcut
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Prodcut $prodcut)
-    {
-        //
-    }
+    //Active and Deactive status update
+    public function status(Request $request, $status, $id){
+      $model = Prodcut::find($id);
+      $model->status=$status;
+      $model->save();
+      $request->session()->flash('message', 'product Status Updated');
+      return redirect('admin/product');
+       
+ }
 }

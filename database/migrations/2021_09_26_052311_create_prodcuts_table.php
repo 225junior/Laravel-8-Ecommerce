@@ -13,7 +13,7 @@ class CreateProdcutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prodcuts', function (Blueprint $table) {
+        Schema::create('prodcuts', function (Blueprint $table){
             $table->id();
             $table->integer('category_id');
             $table->string('name');

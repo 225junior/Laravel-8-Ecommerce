@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\ProdcutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,14 @@ Route::group(['middleware'=>'admin_auth'],function() {
     Route::post('admin/color/manage_color_process', [ColorController::class, 'manage_color_process'])->name('color.manage_color_process');
     Route::get('admin/color/delete/{id}', [ColorController::class, 'delete']);
     Route::get('admin/color/status/{status}/{id}', [ColorController::class, 'status']);
+
+     //prodcut Controller and routes
+     Route::get('admin/prodcut', [ProdcutController::class, 'index']);
+     Route::get('admin/prodcut/manage_prodcut', [ProdcutController::class, 'manage_prodcut']);
+     Route::get('admin/prodcut/manage_prodcut/{id}', [ProdcutController::class, 'manage_prodcut']);
+     Route::post('admin/prodcut/manage_prodcut_process', [ProdcutController::class, 'manage_prodcut_process'])->name('prodcut.manage_prodcut_process');
+     Route::get('admin/prodcut/delete/{id}', [ProdcutController::class, 'delete']);
+     Route::get('admin/prodcut/status/{status}/{id}', [ProdcutController::class, 'status']);
 
   //Logout Route 
     Route::get('admin/logout', function () {
