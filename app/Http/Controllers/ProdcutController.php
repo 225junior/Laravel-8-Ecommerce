@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prodcut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProdcutController extends Controller
 {
@@ -21,8 +22,10 @@ class ProdcutController extends Controller
           $result['slug'] = $arr['0']->slug;
           $result['brand'] = $arr['0']->brand;
           $result['model'] = $arr['0']->model;
+          $result['short_desc'] = $arr['0']->short_desc;
           $result['keywords'] = $arr['0']->keywords;
           $result['technical_specfication'] = $arr['0']->technical_specfication;
+          $result['uses'] = $arr['0']->uses;
           $result['warranty'] = $arr['0']->warranty;
           $result['status'] = $arr['0']->status;
          $result['id'] = $arr['0']->id;
@@ -33,14 +36,16 @@ class ProdcutController extends Controller
           $result['slug'] = '';
           $result['brand'] = '';
           $result['model'] = '';
+          $result['short_desc'] = '';
           $result['keywords'] = '';
           $result['technical_specfication'] = '';
+          $result['uses'] = '';
           $result['warranty'] = '';
-          $result['status'] = '';
           $result['status'] = '';
           $result['id'] = '0';
        }
-       return view('admin.manage_prodcut', $result);
+     
+        return view('admin.manage_prodcut', $result);
     }
 
 
@@ -59,7 +64,7 @@ class ProdcutController extends Controller
             $msg = "Product Inserted";
         }
 
-        $model->category_id = $request->post('category_id');
+        $model->category_id = 1;
         $model->name = $request->post('name');
         $model->image = $request->post('image');
         $model->slug = $request->post('slug');

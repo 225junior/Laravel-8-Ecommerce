@@ -45,8 +45,8 @@
                 @elseif($list->status == 0)
                 <a href="{{url('admin/coupon/status/1')}}/{{$list->id}}">
                   <button type="button" class="btn btn-warning">Deactive</button></a>
-                 
-                @endif  
+                  
+                 @endif  
 
                 <a href="{{url('admin/coupon/manage_coupon')}}/{{$list->id}}">
                 <button type="button" class="btn btn-success">Edit</button></a>
