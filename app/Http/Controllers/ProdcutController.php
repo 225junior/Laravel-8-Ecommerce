@@ -44,7 +44,7 @@ class ProdcutController extends Controller
           $result['status'] = '';
           $result['id'] = '0';
        }
-     
+       $result['category'] = DB::table('categories')->where(['id' => 1])->get();
         return view('admin.manage_prodcut', $result);
     }
 
@@ -64,7 +64,7 @@ class ProdcutController extends Controller
             $msg = "Product Inserted";
         }
 
-        $model->category_id = 1;
+        $model->category_id =$request->post('category_id');
         $model->name = $request->post('name');
         $model->image = $request->post('image');
         $model->slug = $request->post('slug');
@@ -76,6 +76,7 @@ class ProdcutController extends Controller
         $model->uses = $request->post('uses');
         $model->warranty = $request->post('warranty');
         $model->status = $request->post('status');
+        $model->status = 1;
         $model->save();
 
         $request->session()->flash('message', $msg);

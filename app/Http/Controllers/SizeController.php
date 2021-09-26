@@ -43,7 +43,7 @@ class SizeController extends Controller
         }
 
         $model->size = $request->post('size');
-       
+        $model->status = 1;
         $model->save();
 
         $request->session()->flash('message', $msg);

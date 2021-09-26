@@ -46,13 +46,15 @@
 
             <div class="form-group">
                 <label for="category_id" class="control-label mb-1">Category</label>
-                <input id="category_id " type="text" class="form-control" value="{{$category_id}}">
-                @error('category_id')
-               <div class="alert alert-danger">
-                {{$message}}
-               </div>
-                 @enderror
-            </div>
+                <select id="category_id " type="text" class="form-control" value="{{$category_id}}" required >
+                 <option value="">Select Category</option>
+                 @foreach ($category as $list)
+
+                 <option value="{{$list->id}}">
+                    {{$list->category_name}}</option>
+                   @endforeach
+                </select>
+              </div>
 
             <div class="form-group">
                 <label for="brand" class="control-label mb-1"> brand</label>
