@@ -166,8 +166,6 @@
         <a href="{{url('admin/prodcut')}}">
         <i class="fas fa-tag"></i>Products</a>
     </li>
-    
-
 </ul>
 </nav>
 </div>
@@ -208,8 +206,8 @@
     </div>
      </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
 
 </header>
 <!-- END HEADER DESKTOP-->
