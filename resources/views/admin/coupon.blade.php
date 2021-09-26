@@ -3,8 +3,7 @@
 @section('coupon_select', 'active')
 
 @section('container')
-
-
+@if (session()->has('message'))
 <h1 class="text-center">Coupon</h1>
     <div class="alert alert-success">
     {{session('message')}}

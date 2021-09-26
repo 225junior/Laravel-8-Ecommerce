@@ -3,11 +3,11 @@
 @section('category_select', 'active')
 
 @section('container')
-@if (session()->has('message'))
-<h1 class="text-center">Category</h1>
-    <div class="alert alert-success">
-    {{session('message')}}
-    </div>
+    @if (session()->has('message'))
+    <h1 class="text-center">Category</h1>
+        <div class="alert alert-success">
+        {{session('message')}}
+        </div>
     @endif
     
 <a href="{{url('admin/category/manage_category')}}">    
@@ -25,8 +25,7 @@
                 <th>Category Name</th>
                 <th>Category Slug</th>
                 <th>Action</th>
-                 
-            </tr>
+             </tr>
         </thead>
         <tbody>
             @foreach ($data as $list)

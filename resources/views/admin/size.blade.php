@@ -8,7 +8,7 @@
     <div class="alert alert-success">
     {{session('message')}}
     </div>
-    @endif
+ @endif
 <a href="{{url('admin/size/manage_size')}}">    
     <button type="button" class="btn btn-secondary">Add Size</button>
 </a>
