@@ -22,7 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th> Name</th>
-                 
+                <th> Image</th>
                 <th> Slug</th>
                 <th>Action</th>
               </tr>
@@ -32,7 +32,7 @@
                <tr>
                 <th>{{$list->id}}</th>
                 <th>{{$list->name}}</th>
-                 
+                <th><img src="{{asset('storage/media/'. $list->image)}}"></th>
                 <th>{{$list->slug}}</th>
                 <th>
                 <a href="{{url('admin/prodcut/delete')}}/{{$list->id}}">
