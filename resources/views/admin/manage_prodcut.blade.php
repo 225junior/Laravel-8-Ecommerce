@@ -2,6 +2,12 @@
 @section('page_title', 'Manage prodcut')
 
 @section('container')
+@if ($id>0)
+    {{$image_required = ""}}
+  @else
+  {{$image_required = "required"}}
+@endif
+
 <h1 class="text-center">Manage Product</h1>
 <a href="{{url('admin/prodcut')}}">
     <button type="button" class="btn btn-secondary">Back</button>
@@ -36,7 +42,7 @@
 
         <div class="form-group">
             <label for="image" class="control-label mb-1"> Image</label>
-            <input id="image" name="image" type="file" class="form-control" value="{{$image}}">
+            <input id="image" name="image" type="file" class="form-control" value="{{$image}}" {{$image_required}}>
             @error('image')
             <div class="alert alert-danger">
             {{$message}}

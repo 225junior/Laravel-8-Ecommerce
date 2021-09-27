@@ -50,9 +50,15 @@ class ProdcutController extends Controller
 
 
     public function manage_prodcut_process(Request $request){
+      if ($request->post('id')>0) {
+         $image_validation = 'mimes:jpeg,png,jpg,gif,svg|max:2048';
+      }else{
+         $image_validation = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+     }
+
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' =>  $image_validation,
             'slug' => 'required',
             $request->post('id'),
         ]);

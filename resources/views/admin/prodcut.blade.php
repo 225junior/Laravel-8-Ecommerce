@@ -22,16 +22,17 @@
             <tr>
                 <th>ID</th>
                 <th> Name</th>
-                <th> Slug</th>
-                  <th>Action</th>
                  
-            </tr>
+                <th> Slug</th>
+                <th>Action</th>
+              </tr>
         </thead>
         <tbody>
             @foreach ($data as $list)
                <tr>
                 <th>{{$list->id}}</th>
                 <th>{{$list->name}}</th>
+                 
                 <th>{{$list->slug}}</th>
                 <th>
                 <a href="{{url('admin/prodcut/delete')}}/{{$list->id}}">
