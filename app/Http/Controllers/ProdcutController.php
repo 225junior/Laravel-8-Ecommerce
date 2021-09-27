@@ -49,9 +49,10 @@ class ProdcutController extends Controller
     }
 
 
-    public function manage_prodcut_process(Request $request)  {
+    public function manage_prodcut_process(Request $request){
         $request->validate([
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'slug' => 'required',
             $request->post('id'),
         ]);
@@ -64,7 +65,17 @@ class ProdcutController extends Controller
             $msg = "Product Inserted";
         }
 
-        $model->category_id =$request->post('category_id');
+      //   image validation
+        if ($request->hasFile('image')) {
+           $image = $request->file('image');
+           $ext = $image->extension();
+           $image_name = time().'.'. $ext;
+           $image->storeAs('/public/media', $image_name);
+           $model->image = $image_name;
+        }
+
+
+        $model->category_id = 1;
         $model->name = $request->post('name');
         $model->image = $request->post('image');
         $model->slug = $request->post('slug');
@@ -84,7 +95,6 @@ class ProdcutController extends Controller
     }
 
     public function delete(Request $request, $id){
-    
        $model = Prodcut::find($id);
        $model->delete();
        $request->session()->flash('message', 'Product Deleted');
@@ -97,7 +107,6 @@ class ProdcutController extends Controller
       $model->status=$status;
       $model->save();
       $request->session()->flash('message', 'product Status Updated');
-      return redirect('admin/prodcut');
-       
+      return redirect('admin/prodcut');       
  }
 }
