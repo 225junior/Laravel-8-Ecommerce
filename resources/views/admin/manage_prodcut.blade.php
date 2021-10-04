@@ -185,7 +185,18 @@
                     {{$list->size}}</option>
                     @endforeach
                 </select>
-                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="color_id" class="control-label mb-1">Colors</label>
+                <select id="color_id" name="color_id" type="text" class="form-control">
+                    <option value="">Select</option>
+                    @foreach ($colors as $list)
+                  <option value="{{$list->id}}">
+                    {{$list->color}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
     </div>
 </div>
