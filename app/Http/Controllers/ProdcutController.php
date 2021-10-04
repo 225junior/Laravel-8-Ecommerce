@@ -44,7 +44,11 @@ class ProdcutController extends Controller
           $result['status'] = '';
           $result['id'] = '0';
        }
-       $result['category'] = DB::table('categories')->where(['id' => 1])->get();
+       $result['category'] = DB::table('categories')->where(['status' => 1])->get();
+       $result['sizes'] = DB::table('sizes')->where(['status' => 1])->get();
+       $result['colors'] = DB::table('colors')->where(['status' => 1])->get();
+
+
         return view('admin.manage_prodcut', $result);
     }
 

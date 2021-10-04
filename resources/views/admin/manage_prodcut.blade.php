@@ -140,7 +140,59 @@
             @enderror
         </div>
 
-            <div>
+
+<div class="col-lg-12">
+<div class="card">
+<div class="card-body">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+           <label for="sku" class="control-label mb-1">sku</label>
+            <input id="sku" name="sku" type="text" class="form-control">
+            @error('sku')
+            <div class="alert alert-danger">
+                {{$message}}
+            </div>
+            @enderror
+            </div>
+
+            <div class="col-md-1">
+                <label for="mrp" class="control-label mb-1">mrp</label>
+                 <input id="mrp" name="mrp" type="text" class="form-control">
+                 @error('mrp')
+                 <div class="alert alert-danger">
+                     {{$message}}
+                 </div>
+                 @enderror
+            </div>
+
+            <div class="col-md-1">
+                <label for="price" class="control-label mb-1">price</label>
+                 <input id="price" name="price" type="text" class="form-control">
+                 @error('price')
+                 <div class="alert alert-danger">
+                     {{$message}}
+                 </div>
+                 @enderror
+            </div>
+
+            <div class="col-md-3">
+                <label for="size_id" class="control-label mb-1">Sizes</label>
+                <select id="size_id" name="size_id" type="text" class="form-control">
+                    <option value="">Select</option>
+                    @foreach ($sizes as $list)
+                  <option value="{{$list->id}}">
+                    {{$list->size}}</option>
+                    @endforeach
+                </select>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+        <div>
             <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                     Submit 
             </button>
